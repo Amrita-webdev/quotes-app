@@ -1,0 +1,371 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+body {
+  font-family: "Manrope", serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.login__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: rgb(189, 189, 189);
+  padding: 1rem;
+}
+
+.login__container__inner {
+  border: 1px solid white;
+  border-radius: 20px;
+  background-color: white;
+  width: 90%;
+  max-width: 500px;
+  height: auto;
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login__text {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.login__text > p {
+  color: rgb(146, 144, 144);
+  margin-top: 0;
+}
+
+.login__text > h3 {
+  margin-bottom: 0.5rem;
+}
+
+.login__form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+.logininput {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+.logininput > label {
+  margin-bottom: 0.25rem;
+}
+
+.logininput > input {
+  border-radius: 4px;
+  height: 1.5rem;
+  width: 100%;
+  padding: 0 8px;
+  border: 1px solid rgb(179, 179, 179);
+}
+
+.button {
+  margin-top: 2rem;
+}
+
+.button > button {
+  width: 100%;
+  background-color: black;
+  border-radius: 4px;
+  color: #ffffff;
+  height: 2.5rem;
+  cursor: pointer;
+}
+
+.button > button:hover {
+  background-color: #333333;
+}
+/* Header Styles */
+.header {
+  height: 3rem;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  padding: 10px 20px;
+  box-shadow: 0px 15px 10px -15px #111;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header > p {
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Table Container */
+.table__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 2.5rem 20px;
+  overflow-x: hidden; /* Allow horizontal scroll for small screens */
+}
+
+/* Table Styles */
+.table__container > table {
+  text-align: center;
+  border: 1px solid black;
+  border-collapse: collapse; /* Collapse borders for a cleaner table */
+  table-layout: fixed;
+}
+
+.table > thead > tr > th, .table > tbody > tr > td {
+  border: 1px solid black;
+  padding: 10px;
+  word-wrap: break-word;
+}
+
+.table > tbody > tr > td > img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  /* Adjust header font size */
+  .header > p {
+    font-size: 14px;
+  }
+
+  /* Stack the table header and cells on small screens */
+  .table__container {
+    padding: 1rem;
+  }
+
+  .table__container > table {
+    font-size: 12px; /* Reduce font size on smaller screens */
+  }
+
+  .table > thead > tr {
+    display: block;
+  }
+
+  .table > tbody > tr {
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .table > tbody > tr > td {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 8px 0;
+  }
+
+  .table > tbody > tr > td img {
+    width: 60px; /* Adjust image size */
+    height: 60px;
+  }
+
+  /* Hide certain columns on small screens (like media) */
+  .table > tbody > tr > td:nth-child(5), .table > thead > tr > th:nth-child(5) {
+    display: none;
+  }
+}
+
+/* Floating Button Styles */
+.floating-add-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+.floating-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #007bff;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 30px;
+  cursor: pointer;
+  transition: width 0.5s ease, height 0.5s ease;
+  text-align: center;
+}
+
+/* Hover Effect: Expand the button */
+.floating-button:hover {
+  width: 150px;
+  height: 50px;
+  border-radius: 30px;
+}
+
+.floating-button:hover span {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+/* Hide the span initially on hover */
+.floating-button span:last-child {
+  display: none;
+}
+
+/* Make the text appear when hovering */
+.floating-button:hover span {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  padding: 20px;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 500px;
+  max-width: 90%;
+}
+
+.close {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  top: 10px;
+  right: 20px;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.quoteinput {
+  margin-bottom: 15px;
+}
+
+.quoteinput>label {
+  font-weight: bold;
+}
+
+.quoteinput>textarea,
+.quoteinput>input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+.quoteinput>input:last-child{
+  width: fit-content;
+}
+
+.button button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button button:disabled {
+  background-color: #ccc;
+}
+
+
+@media (max-width: 480px) {
+  .table__container {
+    padding: 0.5rem;
+  }
+
+  .table > thead > tr > th, .table > tbody > tr > td {
+    font-size: 10px; /* Further reduce font size */
+  }
+
+  .table > tbody > tr > td img {
+    width: 50px; /* Further reduce image size */
+    height: 50px;
+  }
+
+  /* Reduce padding in the table for very small screens */
+  .table > thead > tr > th, .table > tbody > tr > td {
+    padding: 6px;
+  }
+}
+
+
+/* Media Query for Small Screens */
+@media (max-width: 768px) {
+  .login__container__inner {
+    padding: 1rem;
+    border-radius: 15px;
+  }
+
+  .login__text > h3 {
+    font-size: 1.25rem;
+  }
+
+  .login__text > p {
+    font-size: 0.9rem;
+  }
+
+  .input > input {
+    height: 2rem;
+  }
+
+  .button > button {
+    height: 3rem;
+  }
+}
+
+/* Media Query for Extra Small Screens */
+@media (max-width: 480px) {
+  .login__container {
+    padding: 0.5rem;
+  }
+
+  .login__container__inner {
+    padding: 1rem;
+    width: 100%;
+  }
+
+  .login__text > h3 {
+    font-size: 1rem;
+  }
+
+  .login__text > p {
+    font-size: 0.8rem;
+  }
+
+  .input > input {
+    font-size: 0.9rem;
+  }
+
+  .button > button {
+    font-size: 1rem;
+    height: 2.5rem;
+  }
+}
